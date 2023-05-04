@@ -1,0 +1,43 @@
+components:
+  schemas:
+    main.Person:
+      properties:
+        age:
+          type: integer
+        name:
+          type: string
+      type: object
+externalDocs:
+  description: ""
+  url: ""
+info:
+  contact:
+    email: fiber@swagger.io
+    name: API Support
+  description: This is a sample swagger for Fiber
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Fiber Example API
+  version: "1.0"
+openapi: 3.1.0
+paths:
+  /json:
+    get:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/main.Person'
+          description: OK
+      tags:
+      - Person
+servers:
+- url: localhost:5001/
