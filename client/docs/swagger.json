@@ -1,10 +1,10 @@
 {
-    "components": {"schemas":{"main.Person":{"properties":{"age":{"type":"integer"},"name":{"type":"string"}},"type":"object"}}},
+    "components": {"schemas":{"main.Person":{"properties":{"age":{"type":"integer"},"name":{"type":"string"}},"type":"object"}},"securitySchemes":{"ApiKeyAuth":{"in":"header","name":"Authorization","type":"apiKey"}}},
     "info": {"contact":{"email":"fiber@swagger.io","name":"API Support"},"description":"This is a sample swagger for Fiber","license":{"name":"Apache 2.0","url":"http://www.apache.org/licenses/LICENSE-2.0.html"},"termsOfService":"http://swagger.io/terms/","title":"Fiber Example API","version":"1.0"},
     "externalDocs": {"description":"","url":""},
-    "paths": {"/json":{"get":{"requestBody":{"content":{"application/json":{"schema":{"type":"object"}}}},"responses":{"200":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/main.Person"}}},"description":"OK"}},"tags":["Person"]}}},
+    "paths": {"/json":{"get":{"requestBody":{"content":{"application/json":{"schema":{"type":"object"}}}},"responses":{"200":{"content":{"application/json":{"schema":{"$ref":"#/components/schemas/main.Person"}}},"description":"OK"}},"security":[{"ApiKeyAuth":[]}],"tags":["Person"]}}},
     "openapi": "3.1.0",
     "servers": [
-        {"url":"localhost:5001/"}
+        {"url":"localhost:5001"}
     ]
 }

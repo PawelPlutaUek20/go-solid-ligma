@@ -5,73 +5,7 @@ package docs
 import "github.com/swaggo/swag"
 
 const docTemplate = `{
-    "schemes": {{ marshal .Schemes }},
-    "swagger": "2.0",
-    "info": {
-        "description": "{{escape .Description}}",
-        "title": "{{.Title}}",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "name": "API Support",
-            "email": "fiber@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "{{.Version}}"
-    },
-    "host": "{{.Host}}",
-    "basePath": "{{.BasePath}}",
-    "paths": {
-        "/json": {
-            "get": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "Person"
-                ],
-                "responses": {
-                    "200": {
-                        "description": "OK",
-                        "schema": {
-                            "$ref": "#/definitions/main.Person"
-                        }
-                    }
-                }
-            }
-        }
-    },
-    "definitions": {
-        "main.Person": {
-            "type": "object",
-            "properties": {
-                "age": {
-                    "type": "integer"
-                },
-                "name": {
-                    "type": "string"
-                }
-            }
-        }
-    },
-    "securityDefinitions": {
-        "ApiKeyAuth": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header"
-        }
-    }
-}`
+    "schemes": {{ marshal .Schemes }},"consumes":["application/json"],"produces":["application/json"],"swagger":"2.0","info":{"description":"{{escape .Description}}","title":"{{.Title}}","termsOfService":"http://swagger.io/terms/","contact":{"name":"API Support","email":"fiber@swagger.io"},"license":{"name":"Apache 2.0","url":"http://www.apache.org/licenses/LICENSE-2.0.html"},"version":"{{.Version}}"},"host":"{{.Host}}","basePath":"{{.BasePath}}","paths":{"/json":{"get":{"security":[{"ApiKeyAuth":[]}],"consumes":["application/json"],"produces":["application/json"],"tags":["Person"],"responses":{"200":{"description":"OK","schema":{"$ref":"#/definitions/main.Person"}}}}}},"definitions":{"main.Person":{"type":"object","properties":{"age":{"type":"integer"},"name":{"type":"string"}}}},"securityDefinitions":{"ApiKeyAuth":{"type":"apiKey","name":"Authorization","in":"header"}}}`
 
 // SwaggerInfo holds exported Swagger Info so clients can modify it
 var SwaggerInfo = &swag.Spec{

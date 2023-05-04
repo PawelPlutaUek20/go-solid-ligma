@@ -1,3 +1,5 @@
+consumes:
+- application/json
 definitions:
   main.Person:
     properties:
@@ -34,6 +36,8 @@ paths:
       - ApiKeyAuth: []
       tags:
       - Person
+produces:
+- application/json
 securityDefinitions:
   ApiKeyAuth:
     in: header

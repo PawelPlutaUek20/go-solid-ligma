@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	_ "solid-proto-ligma/docs"
@@ -61,7 +60,6 @@ func main() {
 func GetPerson(c *fiber.Ctx) error {
 
 	claims := c.Locals("user").(gofiberfirebaseauth.User)
-	fmt.Println(claims)
 
 	person := &Person{
 		Name: claims.Email,

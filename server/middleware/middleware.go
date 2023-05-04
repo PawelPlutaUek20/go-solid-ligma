@@ -2,7 +2,6 @@ package middleware
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"os"
 
@@ -17,7 +16,6 @@ func Protected() fiber.Handler {
 
 	serviceAccount, fileExi := os.LookupEnv("GOOGLE_SERVICE_ACCOUNT")
 
-	fmt.Println(serviceAccount)
 	if !fileExi {
 		log.Fatalf("Please provide valid firebase auth credential json!")
 	}
